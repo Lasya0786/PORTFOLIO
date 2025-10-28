@@ -1,0 +1,265 @@
+// ...existing code...
+/* Reset */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(7, 0, 21);
+    font-family: sans-serif;
+    color: antiquewhite;
+    line-height: 1.6;
+}
+
+/* layout */
+.main-container{
+    display: grid;
+    max-width: 1200px;
+    grid-template-columns: 350px 1fr;
+    gap: 70px;
+    padding-top: 40px;
+    margin: auto;
+}
+
+/* sidebar */
+.sidebar{
+    height: 90vh;
+    background-color: #2a2a2a;
+    border-radius: 20px;
+    border: 1px double rgb(47, 45, 45);
+    position: sticky;
+    top: 40px;
+    overflow: auto; /* allow sidebar content to scroll on small viewports */
+    padding-bottom: 30px;
+}
+
+/* profile block in sidebar
+   HTML uses class="profilio" (note: missing quote in HTML — CSS targets the class as written) */
+.profilio,
+.portfolio { /* keep .portfolio for any other references */
+    text-align: center;
+    padding: 24px 16px;
+}
+.profilio img,
+.portfolio img{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px double rgba(22, 2, 2, 0.23);
+    margin: 0 auto 12px;
+    box-shadow: 0 0 15px rgba(222, 217, 227, 0.7);
+    display: block;
+}
+.profilio h2,
+.portfolio h2{
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 8px;
+    color: #e0e0e0;
+    text-shadow: 0 0 8px #ac74af;
+}
+
+/* contact / social */
+.contact{
+    margin-top: 20px;
+    border-top: 2px solid #3a3a3a;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 20px;
+    text-align: left;
+    font-size: smaller;
+    border-radius: 12px;
+}
+.value{
+    color: aliceblue;
+    text-decoration: none;
+    word-break: break-word;
+}
+.email, .phone{
+    margin-bottom: 12px;
+}
+.social{
+    margin-top: 18px;
+    border-top: 2px solid #3a3a3a;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    border-radius: 12px;
+    padding-top: 12px;
+}
+.social img{
+    height: 40px;
+    width: 40px;
+    border: none;
+    margin: 10px;
+    filter: grayscale(1) invert(0.7);
+    transition: filter 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+.social img:hover{
+    filter: grayscale(0) invert(0);
+    box-shadow: 0 0 25px rgba(255, 140, 0, 0.7);
+    transform: scale(1.05);
+    border-radius: 6px;
+}
+
+/* main content area
+   HTML uses class="main content" so target element that has both classes */
+.main.content,
+.main-content {
+    background-color: #2a2a2a;
+    border-radius: 20px;
+    border: 1px double rgb(47, 45, 45);
+    padding: 20px 40px;
+    text-align: justify;
+}
+
+/* navigation */
+#navigation{
+    padding: 20px 40px;
+    border-radius: 20px;
+    margin-bottom: 0px;
+    border-bottom: 2px solid #3a3a3a;
+    margin-left: 0; /* main content has its own padding; avoid double offsets */
+    margin-right: 0;
+}
+nav{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+nav a{
+    text-decoration: none;
+    color: #ffffff96;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.active, nav a:hover{
+    color: #FFBF00;
+}
+
+/* headings and lines */
+.heading{
+    color: #e0e0e0;
+    font-size: 2rem;
+    padding-bottom: 3px;
+    margin-top: 30px;
+    border-top: 2px solid #3a3a3a;
+    padding-top: 15px;
+}
+.line{
+    width: 60px;
+    height: 5px;
+    background-color: #FFBF00;
+    margin-bottom: 15px;
+    border-radius: 20px;
+}
+
+/* about paragraph */
+.para{
+    color: #ffffff;
+    margin-top: 12px;
+}
+
+/* education timeline */
+.edtech{ position: relative; margin-top: 20px; }
+.edfirst, .edsecond, .edthird{ margin-bottom: 20px; padding-left: 25px; position: relative; }
+.goal{
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: 3px solid #FFBF00;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+.liner,
+.linear { /* support both class names used in HTML/CSS */
+    position: absolute;
+    width: 2px;
+    top: 5px;
+    bottom: 0;
+    border-left: 2px solid #3e3e3e;
+    left: 10px;
+}
+
+/* skills grid */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+    gap: 20px;
+}
+.item img{
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    filter: invert(75%) sepia(50%) saturate(1000%) hue-rotate(350deg) brightness(110%) contrast(101%);
+    margin-bottom: 12px;
+}
+
+/* project / portfolio */
+.project.container,
+.project-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 30px;
+}
+.project{
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    border: 1px solid #3a3a3a;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 0;
+}
+.project img{
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+.project .card,
+.project > h3,
+.project > p {
+    padding: 16px;
+    color: #a0a0a0;
+}
+.project:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* card text */
+.card h3{ color:#e0e0e0; margin-bottom: 8px; }
+.card p{ color: #a0a0a0; line-height: 1.5; }
+
+/* responsive */
+@media screen and (max-width: 1200px){
+   .main-container{
+    grid-template-columns: 1fr;
+    padding: 20px;
+   }
+   .sidebar{
+    position: static;
+    height: auto;
+   }
+   .project.container,
+   .project-container{
+       grid-template-columns: 1fr;
+   }
+}
+
+/* images */
+img { max-width: 100%; height: auto; display: block; }
+
+/* smooth scroll */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+// ...existing code...
